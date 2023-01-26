@@ -1,0 +1,133 @@
+<div style="width: 100%; height: 15rem"></div>
+<style>
+  .hedding {
+    font-size: 20px;
+    color: #ab8181;
+  }
+
+  /* body {
+    background-image: url("/web/assets/img/gallery/gallery-1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    image-orientation: flip;
+    background-size: cover;
+  } */
+  body {
+    /* Specify the background image to be used */
+    /* background-image: url("/web/assets/img/gallery/gallery-1.jpg"); */
+    /* background-repeat:repeat */
+    background-size: cover;
+    /* filter: blur(4px);
+     */
+    /* background: rgba(0,0,0,0.1); */
+    /* opacity:0.4;filter:alpha(opacity=40); */
+  }
+
+  .left-side-product-box img {
+    width: 80%;
+  }
+
+  /* .left-side-product-box .sub-img img {
+    margin-top: 5px;
+    width: 83px;
+    height: 100px;
+  } */
+
+  .right-side-pro-detail span {
+    font-size: 15px;
+  }
+
+  .right-side-pro-detail p {
+    font-size: 25px;
+    color: #927305;
+  }
+
+  .right-side-pro-detail .price-pro {
+    color: #000000;
+  }
+
+  .right-side-pro-detail .tag-section {
+    font-size: 18px;
+    color: #ffffff;
+  }
+
+  .pro-box-section .pro-box img {
+    width: 100%;
+    height: 200px;
+  }
+
+  @media (min-width: 360px) and (max-width: 640px) {
+    .pro-box-section .pro-box img {
+      height: auto;
+    }
+  }
+</style>
+
+<section>
+  <div class="container">
+    <div
+      class="col-lg-8 main-section bg-black"
+      style="margin-left: 13rem; margin-top: 4rem; margin-bottom: 4rem"
+    >
+      <div class="row hedding m-0 pl-3 pt-0 pb-3"></div>
+      <div class="row m-0">
+        <div class="col-lg-11 left-side-product-box pb-3">
+          <img
+            src="/web/assets/img/menu/<%=menu.image%>.jpg"
+            style="width: 100%; height: 45%; border-radius: 10%"
+          />
+
+          <div class="right-side-pro-detail" style="padding: 3rem">
+            <div class="row">
+              <div class="col-lg-12">
+                <span style="font-size: 1rem">Choose Your Speacial Order</span>
+                <h2 style="color: rgb(200, 127, 0); text-align: center;" class="col-lg-12 pt-2">
+                  <%=menu.name%>
+                </h2>
+              </div>
+              <div class="col-lg-12">
+                <p style="text-align: center;"> Price<%=menu.price%></p>
+                <hr class="p-0 m-0" />
+              </div>
+              <div class="col-lg-12 pt-2">
+                <h5 style="font-size: 1rem; padding: 1rem">
+                  <%= menu.description%>
+                </h5>
+                <span> </span>
+                <hr class="m-0 pt-2 mt-2" />
+              </div>
+              <div class="col-lg-9">
+                <!-- <p class="tag-section">
+                  <strong>Tag : </strong><a href="">Woman</a><a href="">,Man</a>
+                </p> -->
+              </div>
+              <!-- <div
+                class="col-lg-12"
+                style="text-align: center; margin-top: 2rem"
+              >
+                <h6>faalo ka</h6>
+                <input
+                  type="number"
+                  class="form-control text-center w-100"
+                  value="1"
+                />
+              </div> -->
+              <div class="col-lg-9 mt-3">
+                <div class="row">
+                  <!-- <div class="col-lg-4 pb-2"  style="text-align:center ;" >
+                    <a href="#" class="btn btn-danger w-100">Add To Cart</a>
+                  </div> -->
+                  <div class="col-lg-5" style="margin-left: 15rem">
+                    <a href="/order" class="btn btn-success w-100"
+                      >Order Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

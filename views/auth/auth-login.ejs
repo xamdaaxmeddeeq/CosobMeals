@@ -1,0 +1,100 @@
+<div class="col-lg-4">
+  <div
+    class="authentication-page-content p-4 d-flex align-items-center min-vh-100" style="background-color: rgb(247, 247, 247);"
+  >
+    <div class="w-100" >
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div>
+            <div class="text-center">
+              <div>
+                <a href="/" class="logo"
+                  ><img
+                    src="/admin/assets/images/6.png"
+                    style="width: 15rem; height: 10rem;"
+                    alt="logo"
+                /></a>
+              </div>
+
+              <h4 class="font-size-18 mt-4">Welcome Back !</h4>
+              <p class="text-muted">Sign in to continue to cosob meals.</p>
+            </div>
+
+            <div class="p-2 mt-5">
+              <% if(error.length> 0) { %>
+              <div class="alert alert-danger" role="alert"><%= error %></div>
+              <% } %> <% if(message.length> 0) { %>
+              <div class="alert alert-info" role="alert"><%= message %></div>
+              <% } %>
+
+              <form class="" action="/auth/login" method="post">
+                <div class="mb-3 auth-form-group-custom mb-4">
+                  <i class="ri-user-2-line auti-custom-input-icon" style="color: rgb(69, 2, 2);"></i>
+                  <label for="username">email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter username"
+                    name="email"
+                    value="1111"
+                  />
+                </div>
+
+                <div class="mb-3 auth-form-group-custom mb-4">
+                  <i class="ri-lock-2-line auti-custom-input-icon" style="color: rgb(69, 2, 2);"></i>
+                  <label for="userpassword">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="userpassword"
+                    placeholder="Enter password"
+                    name="password"
+                    value="1111"
+                  />
+                </div>
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="customControlInline"
+                  />
+                  <label class="form-check-label" for="customControlInline"
+                    >Remember me</label
+                  >
+                </div>
+
+                <div class="mt-4 text-center">
+                  <button
+                    class="btn btn-primary w-md waves-effect waves-light"
+                    type="submit"
+                  >
+                    Log In
+                  </button>
+                </div>
+
+                <div class="mt-4 text-center">
+                  <a href="/forgot-password" class="text-muted"
+                    ><i class="mdi mdi-lock me-1"></i> Forgot your password?</a
+                  >
+                </div>
+              </form>
+            </div>
+
+            <div class="mt-5 text-center">
+            
+              <p>
+                ©
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                cosob.
+                <i class="mdi mdi-heart text-danger"></i> by hargabits team developers
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

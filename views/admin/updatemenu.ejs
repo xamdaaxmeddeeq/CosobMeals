@@ -1,0 +1,193 @@
+<%- contentFor('HeaderCss') %> <%- contentFor('breadcrumb') %>
+
+<div class="row">
+  <div class="col-12">
+    <div
+      class="page-title-box d-sm-flex align-items-center justify-content-between"
+    >
+      <h4 class="mb-sm-0">Food forms</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item">
+            <a href="javascript: void(0);">Forms</a>
+          </li>
+          <li class="breadcrumb-item active"></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">form of food adding websites and updating</h4>
+        <p class="card-title-desc">
+          sure the data you intering form is very important to sure be for you
+          adding or updatind
+        </p>
+        <form
+          class="needs-validation"
+          novalidate
+          id="form1"
+          
+        >
+          <div class="row"> 
+            <div class="col-md-2">
+              <div class="mb-3">
+                <label for="validationCustom02" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="foodname"
+                  value="<%=Menu.name%>"
+                  name="name"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="mb-3">
+                <label for="validationCustom02" class="form-label">price</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="price"
+                  placeholder="inter fist name"
+                  value="<%= Menu.price%>"
+                  name="price"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="mb-3">
+                <label for="validationCustom02" class="form-label"
+                  >description</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="description"
+                  placeholder="Last name"
+                  value="<%= Menu.description%>"
+                  name="description"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="mb-3">
+                <label for="validationCustom02" class="form-label">image</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="image"
+                  placeholder="image"
+                  value="<%= Menu.image%>"
+                  name="image"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+           
+            <div class="col-md-2">
+              <div class="mb-3">
+                <label for="validationCustom01" class="form-label"
+                  >delivery Type</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="deliveryType"
+                  value="<%= Menu.deliveryType%>"
+                  name="deliveryType"
+                  id="deliveryType"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="invalidCheck"
+              required
+            />
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit">Add new user</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- end card -->
+  </div>
+</div>
+<script>
+  let updateForm = document.querySelector("#form1");
+
+  updateForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // console.log(e.target);
+
+    // const idInput = document.querySelector("#id");
+    const nameInput = document.querySelector("#name");
+    const priceInput = document.querySelector("#price");
+    const descriptionInput = document.querySelector("#description");
+    const imageInput = document.querySelector("#image");
+    const deliveryTypeIenput = document.querySelector("#deliveryType");
+    // const emailInput = document.querySelector("#email");
+    // const passwordInput = document.querySelector("#password");
+
+    let data = {
+      // id: idInput.value,
+      name: nameInput.value,
+      price: priceInput.value,
+      description: descriptionInput.value,
+      image: imageInput.value,
+      deliveryType: deliveryTypeIenput.value,
+      // email: emailInput.value,
+      // password: passwordInput.value,
+    };
+    // console.log(id);
+    const id = "<%= Menu.id%>"
+    // console.log(data);
+
+    fetch(`/admin/menu/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((location.href = "/admin/menu"))
+
+      .catch((err) => console.log(err));
+  });
+</script>
+<%- contentFor('FooterJs') %>
+
+<script src="/public/assets/libs/parsleyjs/parsley.min.js"></script>
+
+<script src="/public/assets/js/pages/form-validation.init.js"></script>
+
+<%- contentFor('BottomJs') %>

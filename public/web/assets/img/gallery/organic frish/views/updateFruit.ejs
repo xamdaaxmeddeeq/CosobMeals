@@ -1,0 +1,191 @@
+<!-- Page Header Start -->
+<div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
+  <div class="container">
+    <h1 class="display-3 mb-3 animated slideInDown">Contact Us</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item">
+          <a class="text-body" href="#">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a class="text-body" href="#">Pages</a>
+        </li>
+        <li class="breadcrumb-item text-dark active" aria-current="page">
+          Contact Us
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Contact Start -->
+<div class="container-xxl py-6">
+  <div class="container">
+    <div
+      class="section-header text-center mx-auto mb-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 500px"
+    >
+      <h1 class="display-5 mb-3">Udate a fruit</h1>
+      <p>
+        Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo
+        sed rebum vero dolor duo.
+      </p>
+    </div>
+    <div class="row g-5 justify-content-center">
+      <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.1s"></div>
+      <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+        <p class="mb-4">
+          The contact form is currently inactive. Get a functional and working
+          contact form with Ajax & PHP in a few minutes. Just copy and paste the
+          files, add a little code and you're done.
+          <a href="https://htmlcodex.com/contact-form">Download Now</a>.
+        </p>
+        <form id="yy">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  value="<%= fruit.name %>"
+                  placeholder="fruites"
+                />
+                <label for="name">fruite name</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="id"
+                  name="id"
+                  value="<%= fruit.id %>"
+                  placeholder="Your Email"
+                />
+                <label for="email">fruit ID</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="discount"
+                  name="discount"
+                  value="<%= fruit.discount %> "
+                  placeholder="Your Email"
+                />
+                <label for="email">discount</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="price"
+                  name="price"
+                  value="<%= fruit.price %> "
+                  placeholder="Your Email"
+                />
+                <label for="number">price</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="details"
+                  name="details"
+                  value="<%= fruit.details %> "
+                  placeholder="details"
+                />
+                <label for="text">details</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="image"
+                  name="image"
+                  value="<%= fruit.image %>"
+                  placeholder="Your Email"
+                />
+                <label>image</label>
+              </div>
+            </div>
+
+            <!-- <div class="col-12">
+                    <div class="form-floating">
+                      <textarea
+                        class="form-control"
+                        placeholder="Leave a message here"
+                        id="message"
+                        style="height: 200px"
+                      ></textarea>
+                      <label for="message">Message</label>
+                    </div>
+                  </div> -->
+            <div class="col-12">
+              <button
+                class="btn btn-primary rounded-pill py-3 px-5"
+                ,
+                type="submit"
+              >
+                Update Now
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact End -->
+
+<script>
+  let updateForm = document.querySelector("#yy");
+
+  updateForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const idInput = document.querySelector("#id");
+    const nameInput = document.querySelector("#name");
+    const discountInput = document.querySelector("#discount");
+    const priceInput = document.querySelector("#price");
+    const detailsInput = document.querySelector("#details");
+    const imageInput = document.querySelector("#image");
+
+    let data = {
+      id: idInput.value,
+      name: nameInput.value,
+      price: priceInput.value,
+      discount: discountInput.value,
+      details: detailsInput.value,
+      image: imageInput.value,
+    };
+
+    const id = "<%= fruit.id %>";
+
+    console.log(id);
+    console.log(data);
+
+    fetch(`/fruits/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then
+      (location.href = "/fruits")
+      ()
+      .catch((err) => console.log(err));                                  
+  });
+</script>

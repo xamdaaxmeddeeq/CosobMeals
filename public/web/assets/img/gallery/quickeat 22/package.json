@@ -1,0 +1,15 @@
+{
+  "name": "quickeat",
+  "version": "1.0.0",
+  "description": "quick eat is a class project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mawliid",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}

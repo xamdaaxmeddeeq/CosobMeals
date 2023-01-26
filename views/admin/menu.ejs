@@ -1,0 +1,181 @@
+<%- contentFor('HeaderCss') %>
+
+<!-- DataTables -->
+<link
+  href="/admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+
+<!-- Responsive datatable examples -->
+<link
+  href="/admin/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+
+<%- contentFor('breadcrumb') %>
+
+<div class="row">
+  <div class="col-12">
+    <div
+      class="page-title-box d-sm-flex align-items-center justify-content-between"
+    >
+      <h4 class="mb-sm-0" h4 style="margin-left: 1rem">MENU</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item active">
+            <h4 style="margin-right: 2rem">Food Menu</h4>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <a href="/admin/menu/addmenu" class="btn btn-success mb-2"
+            ><i class="mdi mdi-plus me-2"></i> Add New Food</a
+          >
+        </div>
+        <div class="table-responsive mt-3">
+          <table
+            class="table table-centered datatable dt-responsive nowrap"
+            style="border-collapse: collapse; border-spacing: 0; width: 100%"
+          >
+            <thead class="thead-light">
+              <tr>
+                <!-- <th>ID</th> -->
+                <th>Name</th>
+                <th>Price</th>
+                <th>description</th>
+                <th>image</th>
+
+                <!-- <th>Role</th>
+                <th>password</th>
+                <th>password</th> -->
+              </tr>
+            </thead>
+            <tbody id="listen">
+              <% for(const menu1 of menu){ %>
+              <tr>
+                <!-- <td>
+                  <div class="form-check">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      id="customercheck1"
+                    />
+                    <label class="form-check-label mb-0" for="customercheck1"
+                      >&nbsp;</label
+                    >
+                  </div>
+                </td> -->
+
+                <!-- <td><%#= menu1.id%></td> -->
+                <td><%= menu1.name%></td>
+                <td><%= menu1.price%></td>
+                <td><%= menu1.description%></td>
+                <td>
+                  <img
+                    src="/web/assets/img/menu/<%=menu1.image %>.jpg"
+                    class="menu-img"
+                    style="height: 5rem; width: 5rem; 
+                    border-radius: 50%;"
+                    alt=""
+                  />
+                </td>
+
+                <!-- <td><%#= user.role%></td>
+                <td><%#= user.password%></td>
+
+                <td><%#= user.date%></td> -->
+
+                <td id="tooltip-container1">
+                  <!-- Edit Botton -->
+                  <a
+                    
+                    href=""
+                    class="me-3 text-primary"
+                    data-bs-container="#tooltip-container1"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Edit"
+                    ><i
+                      class="mdi mdi-pencil font-size-18"
+                      data-doc="<%= menu1.id%>"
+                    >
+                    </i
+                  ></a>
+                  <!-- delete Botton -->
+                  <a
+                    href=""
+                    class="text-danger"
+                    data-bs-container="#tooltip-container1"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="Delete"
+                    ><i
+                      class="mdi mdi-trash-can font-size-18"
+                      data-id="<%= menu1.id%>"
+                    ></i
+                  ></a>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  div = document.querySelector("#listen");
+  // console.log(div);
+  div.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // console.log(e.target);
+
+    if (e.target.hasAttribute("data-id")) {
+      // console.log("waad heshay");
+
+      const id = e.target.getAttribute("data-id");
+      // console.log(id);
+
+      //  CALL API
+
+      fetch(`/admin/menu/${id}`, { method: "DELETE" })
+        .then(location.reload())
+        .catch((erro) => console.log(erro));
+    }
+
+      if (e.target.hasAttribute("data-doc")) {
+        const id = e.target.getAttribute("data-doc");
+        location.href = `/admin/menu/updatemenu/${id}`;
+      }
+  });
+</script>
+
+<%- contentFor('FooterJs') %>
+
+<!-- Required datatable js -->
+<script src="/admin/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/admin/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="/admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/admin/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+<script src="/admin/assets/js/pages/ecommerce-datatables.init.js"></script>
+
+<%- contentFor('BottomJs') %>

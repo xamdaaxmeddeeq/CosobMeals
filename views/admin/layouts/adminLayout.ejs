@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title><%- title %> | cosob meals - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      content="Premium Multipurpose Admin & Dashboard Template"
+      name="description"
+    />
+    <meta content="Themesdesign" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/admin/assets/images/favicon.png" />
+
+    <%- HeaderCss %> <%- include ('./HeaderStyle') %>
+  </head>
+
+  <body data-sidebar="dark">
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+      <%- include ('./Header') %> <%- include ('./Sidebar') %>
+
+      <div class="main-content">
+        <div class="page-content">
+          <div class="container-fluid"><%- breadcrumb %> <%- body %></div>
+        </div>
+        <%- include ('./Footer') %>
+      </div>
+    </div>
+
+    <%- include ('./Rightbar') %> <%- include ('./VendorScript') %> <%- FooterJs
+    %>
+
+    <script src="/admin/assets/js/app.js"></script>
+
+    <%- BottomJs %>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<%- contentFor('HeaderCss') %> <%- contentFor('breadcrumb') %>
+
+<div class="row">
+  <div class="col-12">
+    <div
+      class="page-title-box d-sm-flex align-items-center justify-content-between"
+    >
+      <h4 class="mb-sm-0">Form Validation</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item">
+            <a href="javascript: void(0);">Forms</a>
+          </li>
+          <li class="breadcrumb-item active">Form Validation</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">form of emboleeys</h4>
+        <p class="card-title-desc">
+        sure the data you intering form is very important data
+        </p>
+        <form class="needs-validation" novalidate  action="/admin/users" method="post">
+          <div class="row">
+            <div class="col-md-3">
+          
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom02" class="form-label"
+                  >User Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom02"
+                  placeholder="inter user name"
+                  value=""
+                  name="username"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom02" class="form-label"
+                  >fist name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom02"
+                  placeholder="inter fist name"
+                  value=""
+                  name="fistName"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom02" class="form-label"
+                  >secon name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom02"
+                  placeholder="Last name"
+                  value=""
+                  name="seconName"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+          
+          </div>
+
+          <!-- rowga labaad -->
+          <div class="row">
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom03" class="form-label">job title</label>
+                <select class="form-select" id="validationCustom03" name="role" required>
+                  <option selected disabled value="">select role</option>
+                  <option>marketing</option>
+                  <option>full chef</option>
+                  <option>Pastry Chef.</option>
+                  <option> Cashier</option>
+                  <option>Manager</option>
+
+
+                </select>
+                <div class="invalid-feedback">Please select a valid state.</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom04" class="form-label">phone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom04"
+                  placeholder="inter the phone number"
+                  name="phone"
+                  required
+                />
+                <div class="invalid-feedback"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom04" class="form-label">email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom04"
+                  placeholder="inter the email"
+                  name="email"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="mb-3">
+                <label for="validationCustom04" class="form-label">password</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom04"
+                  placeholder="password"
+                  name="password"
+                  required
+                />
+                <div class="invalid-feedback"></div>
+              </div>
+            </div>       
+          </div>
+          
+
+
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="invalidCheck"
+              required
+            />
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary" type="submit">Add new user</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- end card -->
+  </div>
+</div>
+
+<%- contentFor('FooterJs') %>
+
+<script src="/public/assets/libs/parsleyjs/parsley.min.js"></script>
+
+<script src="/public/assets/js/pages/form-validation.init.js"></script>
+
+<%- contentFor('BottomJs') %>
